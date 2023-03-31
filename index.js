@@ -10,6 +10,12 @@ app.use(bodyParser.json({ limit: '50mb' }));
 app.use(bodyParser.urlencoded({ limit: '50mb', extended: true }));
 app.use(cookieParser());
 
+app.use('/', (req, res) => {
+    res.json({
+        message: "Hello from app"
+    })
+})
+
 app.use('/api/user', require('./routes/user'));
 app.use('/api/upload', require('./routes/upload'));
 app.use('/api/transaction', require('./routes/transaction'));
